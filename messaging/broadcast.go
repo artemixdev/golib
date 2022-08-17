@@ -27,10 +27,8 @@ func Broadcast[T any](ctx context.Context, durable bool, src <-chan T, dst ...ch
 					defer wg.Done()
 
 					if durable {
-						select {
-						case ch <- value:
-							return
-						}
+						ch <- value
+						return
 					}
 
 					select {
