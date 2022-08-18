@@ -16,3 +16,8 @@ func FilterTo[T any](input []T, output *[]T, callback func(index int, element T)
 	}
 	*output = (*output)[:outIdx]
 }
+
+func FilterMut[T any](input *[]T, callback func(index int, element T) bool) {
+	in := append(make([]T, 0, len(*input)), *input...)
+	FilterTo[T](in, input, callback)
+}
