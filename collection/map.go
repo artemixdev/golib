@@ -1,9 +1,13 @@
 package collection
 
-func Map[T, M any](input []T, callback func(index int, element T) M) []M {
-	output := make([]M, 0, len(input))
-	for index, element := range input {
-		output = append(output, callback(index, element))
-	}
+func Map[T, U any](input []T, callback func(index int, element T) U) []U {
+	output := make([]U, len(input))
+	MapTo[T, U](input, output, callback)
 	return output
+}
+
+func MapTo[T, U any](input []T, output []U, callback func(index int, element T) U) {
+	for index, element := range input {
+		output[index] = callback(index, element)
+	}
 }

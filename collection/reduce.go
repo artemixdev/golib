@@ -1,6 +1,6 @@
 package collection
 
-func Reduce[T, A any](input []T, initial A, callback func(accumulator A, element T) A) A {
+func Reduce[T, U any](input []T, initial U, callback func(accumulator U, element T) U) U {
 	accumulator := initial
 	for _, element := range input {
 		accumulator = callback(accumulator, element)
