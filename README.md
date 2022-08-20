@@ -8,6 +8,9 @@ Common functions and primitives popular when working with collections.
 This package is for working with messages going through channels.
 Maybe it slightly reminds Rx* libraries.
 
+## middleware
+Middleware for most common web routers.
+
 ## store
 In-memory key-value store with transactions.
 
