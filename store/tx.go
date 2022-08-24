@@ -111,4 +111,4 @@ func (tx *Tx) Rollback() error {
 	return nil
 }
 
-var ErrTxClosed = errors.New("tx closed")
+var ErrTxClosed = errors.New("store: tx closed")
